@@ -10,15 +10,16 @@ const createElement = () => {
 	editButton.textContent = 'Edit'
 	editButton.addEventListener('click', (e) => {
 		const editContent = document.createElement('input')
-    const editSubmit = document.createElement('button')
+		const editSubmit = document.createElement('button')
 		editContent.value = listItem.textContent
 		listItem.appendChild(editContent)
-    listItem.append(editSubmit)
-    editSubmit.textContent = 'SubmitChange'
-    editSubmit.addEventListener('click', (e) => {
-      newContent = editContent.textContent
-      console.log(newContent)
-    })
+		listItem.append(editSubmit)
+		editSubmit.textContent = 'SubmitChange'
+		editSubmit.addEventListener('click', (e) => {
+			newContent.textContent = editContent.value
+			editContent.remove()
+			editSubmit.remove()
+		})
 	})
 	const deleteButton = document.createElement('button')
 	deleteButton.textContent = 'Delete'
